@@ -24,3 +24,8 @@ order by - sorting by a column value, desc/asc; numerical or alphabetical - NA K
 LIMIT - uzywamy JAKO OSTATNIA KOMEMNDA 
 
 LIMIT 10 (do 10)
+
+BEETWEN low AND high - to ssamo co >= AND <= ------> inclusive
+NOT BETWEEN low AND high - to samo co > AND <  ---------> exclusive
+
+ISO 8601 - dates are written as follows YYYY-MM-DD
