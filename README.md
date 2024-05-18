@@ -20,3 +20,7 @@ comparison operators;
 W SQL UZYWAMY ' ' NIE " "
 
 order by - sorting by a column value, desc/asc; numerical or alphabetical - NA KONCU, ASC na default
+
+LIMIT - uzywamy JAKO OSTATNIA KOMEMNDA 
+
+LIMIT 10 (do 10)
