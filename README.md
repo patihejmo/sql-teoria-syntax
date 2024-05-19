@@ -29,3 +29,6 @@ BEETWEN low AND high - to ssamo co >= AND <= ------> inclusive
 NOT BETWEEN low AND high - to samo co > AND <  ---------> exclusive
 
 ISO 8601 - dates are written as follows YYYY-MM-DD
+
+SELECT amount from payment
+where amount in (0.99, 1.98, 1.99)
