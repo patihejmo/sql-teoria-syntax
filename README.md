@@ -32,3 +32,11 @@ ISO 8601 - dates are written as follows YYYY-MM-DD
 
 SELECT amount from payment
 where amount in (0.99, 1.98, 1.99)
+
+wildcards - like/ilike
+
+SELECT first_name from customer
+where first_name like 'A%' AND first_name like '%a'
+its very sensitive - capital letter matter
+
+'_ cos _'
