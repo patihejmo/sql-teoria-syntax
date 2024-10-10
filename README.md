@@ -1,4 +1,4 @@
-# sql-teoria-syntax
+# sql-teoria-syntax 
 
 select statement - wybiera, distinct daje tylko odmienne dane ktore nie moga sie powtarzac; unique values 
 
@@ -40,3 +40,23 @@ where first_name like 'A%' AND first_name like '%a'
 its very sensitive - capital letter matter
 
 '_ cos _'
+
+# JOINS
+
+inner join allows you to join two tables which share common columns
+
+SELECT * FROM Registrations                   >>  SELECT something FROM table1
+INNER JOIN Logins                                 INNER JOIN table2
+ON Registrations.name = Logins.name               ON table1.column_match = table2.column_match
+
+you can use select statement to avoid duplications.
+
+SELECT reg_id, Logins.name, log_id
+FROM Registrations
+INNER JOIN Logins
+ON Registrations.name = Logins.name
+
+
+
+
+
