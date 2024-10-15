@@ -81,7 +81,7 @@ ON customer.customer_id=payment.customer_id
 WHERE customer.customer_id IS null 
 OR payment.payment_id IS null
 
-
+select count (distinct customer_id) from customer
 
 
 
