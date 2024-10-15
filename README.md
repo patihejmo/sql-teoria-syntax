@@ -43,6 +43,7 @@ its very sensitive - capital letter matter
 
 # JOINS
 
+# inner join
 inner join allows you to join two tables which share common columns
 
 SELECT * FROM Registrations                   >>  SELECT something FROM table1
@@ -57,6 +58,28 @@ INNER JOIN Logins
 ON Registrations.name = Logins.name
 
 in postgresql its prettty normal to write only JOIN nstead of INNER JOIN - the syntax treats it as the same
+
+select payment_id, customer.customer_id from payment
+INNER JOIN customer
+ON payment.customer_id=customer.customer_id
+
+# outer join 
+it grabs everything from both tables, whether it is in both or in only one
+
+SELECT * FROM Registrations
+FULL OUTER JOIN Logins 
+ON Registrations.name = Logins.name >>>>> it will give us null values as we ask to fill data only with logins table
+
+SELECT * FROM Registrations
+FULL OUTER JOIN Logins
+ON Registrations.name = Logins.name
+WHERE Registrations.reg_id IS NULL OR Logins.log_id IS NULL   >>>> searches only for the unique values !!!!!!
+
+SELECT * FROM customer
+FULL OUTER JOIN payment
+ON customer.customer_id=payment.customer_id
+WHERE customer.customer_id IS null 
+OR payment.payment_id IS null
 
 
 
