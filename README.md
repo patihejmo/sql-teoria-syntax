@@ -56,6 +56,9 @@ FROM Registrations
 INNER JOIN Logins
 ON Registrations.name = Logins.name
 
+in postgresql its prettty normal to write only JOIN nstead of INNER JOIN - the syntax treats it as the same
+
+
 
 
 
