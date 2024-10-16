@@ -83,6 +83,17 @@ OR payment.payment_id IS null
 
 select count (distinct customer_id) from customer
 
+# left outer join
+
+so if the left table is table A, we grab everything exclusive from table A + matching columns from both A and B tables
+
+SELECT * FROM Registrations
+LEFT OUTER JOIN Logins
+ON Registrations.name = Logins.name >>> will give us everything from Registration table and matching things from Logins
+
+mozna tez napisac
+WHERE Logins.id IS NULL zeby byly tylko rzdezczy z A i nie powtarzajace sie, unique for A
 
 
-
+SELECT film.film_id, film.title, inventory_id from film
+left join inventory on inventory.film_id = film.film_id
