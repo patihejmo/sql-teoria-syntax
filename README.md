@@ -97,3 +97,4 @@ WHERE Logins.id IS NULL zeby byly tylko rzdezczy z A i nie powtarzajace sie, uni
 
 SELECT film.film_id, film.title, inventory_id from film
 left join inventory on inventory.film_id = film.film_id
+where inventory.film_id is null     >>>>>>> we do not have any of these movies in the inventory
