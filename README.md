@@ -98,3 +98,51 @@ WHERE Logins.id IS NULL zeby byly tylko rzdezczy z A i nie powtarzajace sie, uni
 SELECT film.film_id, film.title, inventory_id from film
 left join inventory on inventory.film_id = film.film_id
 where inventory.film_id is null     >>>>>>> we do not have any of these movies in the inventory
+
+
+BETWEEN statement is INCLUSIVE, meaning that if i have a formula:
+WHERE value BETWEEN 8 AND 10,
+8 and 10 are also considered as valid.
+
+NOT BETWEEN statement is EXCLUSIVE, so its as follows
+WHERE value NOT BETWEEN 8 AND 10,
+-> 8, 10, and nothing what is in between these numbers is included 
+
+we can use BETWEEN also for dates, formatted in the ISO 8601 standard (YYYY-MM-DD)
+date BETWEEN 2002-10-08 AND 2002-12-24
+
+select count (*) from payment
+where amount between 8 and 9
+
+select * from payment
+where payment_date between '2005-10-01' and '2007-10-01'
+order by payment_date asc
+
+# WAZNE !!! 
+jeśli tak jak w przykladzie wyzej jest end date jako 01/10/2007, to 1/10 NIE JEST INCLUDED kiedy mamy godziny. ten format umozliwia zwrot danych do 31/09
+
+# IN 
+select * from customer
+where first_name in ('David')
+
+IN ('something')
+
+select * from payment
+where amount in/NOT IN (0.99, 1.98) -> tutaj to nie jest string tylko int wiec nie trzeba ' ' 
+
+# LIKE AND ILIKE
+ SELECT * FROM customer
+ WHERE first_name LIKE 'D%' AND last_name LIKE 'D%'; 
+
+SELECT * FROM customer
+WHERE first_name LIKE '%a' AND last_name LIKE '%a';
+
+# LIKE STATMENET IS CASE SENSITIVE, however ILIKE is not 
+
+using % is for a bunch of characters, using _ underscore is only FOR A SINGLE CHARACTER
+
+we can also combine these functions, i.e:
+ SELECT * FROM customer
+ WHERE first_name LIKE '_her%' -> it returns names like Theresa, Cheryl etc
+
+ 
