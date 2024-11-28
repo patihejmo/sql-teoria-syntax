@@ -162,3 +162,33 @@ SUM - select sum (replacement_cost) from film
 
 # GROUP BY
 1. first we choose the categorical column that is not continuous 
+2. it must appear after FROM or WHERE statement
+3. if we choose to retrieve something at the SELECT statement stage, we must include it in the GROUP BY statement
+4. WHERE swtatement should refer to SELECT/GROUP BY result, not an aggregate function like sum, avg etc
+
+SELECT customer_id, SUM (amount)
+FROM payment
+GROUP BY customer_id
+ORDER BY SUM(amount) desc
+
+SELECT customer_id, SUM (amount)
+FROM payment
+GROUP BY customer_id
+ORDER BY SUM(amount) desc
+
+# select DATE(payment_date) from payment
+funckja date usuwa timestamp z daty, czyli fromatuje date na iso 8601 YYYY-MM-DD 
+
+ SELECT staff_id, COUNT(payment_id) from payment
+ WHERE staff_id IN (1,2)
+ GROUP BY staff_id
+ ORDER BY COUNT(payment_id) desc
+
+ select rating, ROUND(AVG(replacement_cost),2) from film 
+GROUP BY rating
+order by AVG(replacement_cost) desc
+
+select customer_id, SUM(amount) from payment
+GROUP BY customer_id
+ORDER BY SUM(amount) DESC
+LIMIT 5 -----> retrieving only the top 5 customers who spent the most moeny in the store
