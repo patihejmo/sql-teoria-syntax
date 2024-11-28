@@ -145,4 +145,20 @@ we can also combine these functions, i.e:
  SELECT * FROM customer
  WHERE first_name LIKE '_her%' -> it returns names like Theresa, Cheryl etc
 
- 
+
+select count (distinct(district)) from address
+
+
+# AGGREGATE FUNCTIONS - GROUP BY, HAVING
+
+the main idea is to take multiple inputs and return one single output
+AVG - average value; retuns a FLOATING point (so many decimal places i.e. 1.5437) - to change it we can use ROUND ()
+   select round (avg (replacement_cost), 2) from film --------> 2 here is the3 number of decimal places we want to return
+COUNT 
+MAX - SELECT MAX (replacement_cost) FROM film
+MIN 
+SUM - select sum (replacement_cost) from film 
+
+
+# GROUP BY
+1. first we choose the categorical column that is not continuous 
