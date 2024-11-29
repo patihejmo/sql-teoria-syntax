@@ -192,3 +192,18 @@ select customer_id, SUM(amount) from payment
 GROUP BY customer_id
 ORDER BY SUM(amount) DESC
 LIMIT 5 -----> retrieving only the top 5 customers who spent the most moeny in the store
+
+# HAVING
+select customer_id, sum(amount) from payment
+group by customer_id
+having sum(amount) > 100 --------> tutaj HAVING działa jak where i odnosi sie do tej aggregate function, where nie bedzie dzialac 
+
+
+select customer_id, count (payment_id) from payment
+group by customer_id
+having count(payment_id) >= 40
+
+select customer_id, sum (amount) from payment
+where staff_id IN (2)
+group by customer_id
+having sum(amount) > 100 
