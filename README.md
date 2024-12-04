@@ -63,6 +63,10 @@ select payment_id, customer.customer_id from payment
 INNER JOIN customer
 ON payment.customer_id=customer.customer_id
 
+select customer.customer_id, first_name, payment_id from customer
+inner join payment
+on customer.customer_id = payment.customer_id 
+
 # outer join 
 it grabs everything from both tables, whether it is in both or in only one
 
@@ -207,3 +211,19 @@ select customer_id, sum (amount) from payment
 where staff_id IN (2)
 group by customer_id
 having sum(amount) > 100 
+
+AS - alias AFTER SELECT - makes the query more readable for the analyst and others
+
+select count(amount) as num_transactions
+from payment
+
+select customer_id, sum (amount) as total_spend
+from payment
+group by customer_id
+
+ALIAS dziala dopiero na koncu wykonywanego quesry. Dlatego NIEMOZLIWE jest uzycie go np. po WHERE, GROUP BY i innych warunkowych statements, bo po prostu nie znajdzie odwolania,
+
+select customer_id, sum (amount) as total_spend
+from payment
+group by customer_id
+having sum(amount) >100 -------->> tutaj having sum(total_spend) by nie działało
