@@ -227,3 +227,46 @@ select customer_id, sum (amount) as total_spend
 from payment
 group by customer_id
 having sum(amount) >100 -------->> tutaj having sum(total_spend) by nie działało
+
+INITCAP(UPPER/LOWER(nazwa kolumny)) as formatted_nazwa_kolumny ----> formatuje tylko pierwsza litere w slowie INITCAP, LOWER/UPPER formatuje WSZYSTKIE 
+
+select s.company_name, s.address, s.city 
+from northwind.suppliers s
+order by city asc ------------------------> aliasy zeby sie polapac w tabelkach
+
+select s.company_name, s.city
+from northwind.suppliers s
+order by 2 desc; ---> sortuje po city bo jest jako drugi parametr
+
+select upper(s.company_name) as upper, 
+initcap(s.company_name) as initcap
+from northwind.suppliers s
+where upper(s.city) = upper('london');
+
+'%____' conajmniej 4 znaki bo 4 wildcardy
+
+
+select p.*, s.COMPANY_NAME
+from northwind.suppliers s, northwind.products p
+where s.SUPPLIER_ID=p.SUPPLIER_ID;
+
+FINAL FORM
+--13--
+select product_name, (REORDER_LEVEL-UNITS_IN_STOCK) AS UNITS_TO_BUY
+from northwind.PRODUCTS 
+WHERE UNITS_IN_STOCK < REORDER_LEVEL;
+
+
+--14--
+select p.product_name, s.address, ((p.reorder_level+100)-p.units_in_stock) as units_to_buy
+from northwind.products p
+inner join northwind.suppliers s
+on p.supplier_id=s.supplier_id;
+
+
+
+
+
+
+
+
