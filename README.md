@@ -264,7 +264,17 @@ inner join northwind.suppliers s
 on p.supplier_id=s.supplier_id;
 
 
+--9--
+The SUBSTR() function extracts a substring from a string (starting at any position).
+SUBSTR (string, start, lenght<optional>)
+NOTE: the first character (start position) is 1, the last should be coded as -1 if we want to start from the end
 
+SELECT SUBSTR(CustomerName, 2, 5) AS ExtractString
+FROM Customers;
+
+--10--
+SELECT company_name SUBSTR (postal_code, -2, 2) = 00 
+FROM suppliers
 
 
 
